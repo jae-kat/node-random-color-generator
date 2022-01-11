@@ -1,0 +1,9 @@
+{
+  "name": "pjct-node-1-random-color-generator",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "repository": "https://github.com/jae-kat/pjct-node-1-random-color-generator.git",
+  "author": "katharina jäger <jaeger.kt@gmail.com>",
+  "license": "MIT"
+}
