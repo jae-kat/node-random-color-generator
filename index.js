@@ -1,3 +1,5 @@
+//changes terminal color
+import kuler from 'kuler';
 // random hex color generator
 import { generate } from 'random-hex';
 //this converts a color to a random variation of itself
@@ -9,17 +11,17 @@ import shader from 'shader';
 
 //this logs a random hex value
 const randomHex = generate();
-/*console.log(
-  `################################
+const hash1 = `################################
 ################################
 ################################
 ####                        ####
-####       ${randomHex}          ####
+####       `;
+const hash2 = `          ####
 ####                        ####
 ################################
 ################################
-################################`,
-); */
+################################`;
+
 //stores user input in a variable
 const colorInput = process.argv[2];
 const hueInput = process.argv[3];
@@ -34,10 +36,13 @@ const hex = rgb2hex(hue).hex;
 const darkerShade = shader(hex, -0.5);
 const lighterShade = shader(hex, 0.5);
 
+let color;
 if (colorInput && !hueInput) {
-  console.log(hex);
+  color = hex;
 } else if (colorInput && hueInput) {
-  console.log(hueInput === 'light' ? lighterShade : darkerShade);
+  color = hueInput === 'light' ? lighterShade : darkerShade;
 } else {
-  console.log(randomHex);
+  color = randomHex;
 }
+
+console.log(kuler(`${hash1}${color}${hash2}`, color));

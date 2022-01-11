@@ -37,6 +37,7 @@
     "eslint-plugin-react": "7.28.0"
   },
   "dependencies": {
+    "kuler": "^2.0.0",
     "random-hex": "^1.0.2",
     "randomized-colors": "^0.0.32",
     "rgb2hex": "^0.2.5",
