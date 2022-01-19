@@ -24,7 +24,7 @@ const hash2 = `          ####
 
 // stores user input in a variable
 const colorInput = process.argv[2];
-const hueInput = process.argv[3];
+const luminosityInput = process.argv[3];
 
 // this converts a color name input to a hue variation
 const hue = colorInput ? randomized(colorInput, 0.3) : 'rgb(0, 0, 0)';
@@ -32,15 +32,11 @@ const hue = colorInput ? randomized(colorInput, 0.3) : 'rgb(0, 0, 0)';
 // this converts the rgb value of the hue variation to hex
 const hex = rgb2hex(hue).hex;
 
-// this creates darker or lighter instances of a color
-const darkerShade = shader(hex, -0.5);
-const lighterShade = shader(hex, 0.5);
-
 let color;
-if (colorInput && !hueInput) {
+if (colorInput && !luminosityInput) {
   color = hex;
-} else if (colorInput && hueInput) {
-  color = hueInput === 'light' ? lighterShade : darkerShade;
+} else if (colorInput && luminosityInput) {
+  color = luminosityInput === 'light' ? shader(hex, 0.5) : shader(hex, -0.5);
 } else {
   color = randomHex;
 }
